@@ -26,6 +26,7 @@ var startDrag = function(bar, target, callback){
 	};
 	document.onmouseup = function(){
 		params.flag = false;
+		target.style.cursor = "";
 		if (_refresh) {
 			$(target).animate({"top": 60}, 100);
 			$(refresh).animate({"height": 60}, 100);
@@ -53,6 +54,7 @@ var startDrag = function(bar, target, callback){
 			var nowY = e.clientY;
 			var disY = nowY - params.currentY;
 			if (disY > 0) {
+				target.style.cursor = "-webkit-grabbing";
 				target.style.top = disY + "px";
 				if (disY > 60) {
 					refresh.style.height = disY + "px";
